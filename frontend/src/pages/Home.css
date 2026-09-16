@@ -1,3 +1,4 @@
+/* --------------------HERO SEC-------------------- */
 .hero {
   min-height: 75vh;
   padding: 80px 8%;
@@ -95,7 +96,207 @@
   margin: 15px 0;
 }
 
-.intro > p:last-child {
+.intro>p:last-child {
   font-size: 17px;
   line-height: 1.7;
+}
+
+/* ----------------------MONOTORING SEC----------------------- */
+.stats {
+  padding: 80px 8%;
+  background: #f5fbfa;
+}
+
+.stats-heading {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 45px;
+}
+
+.stats-heading h2 {
+  font-size: 40px;
+  margin: 15px 0;
+}
+
+.stats-heading p:last-child {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  padding: 35px 20px;
+  text-align: center;
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #e5eeee;
+}
+
+.stat-card h3 {
+  font-size: 36px;
+  margin: 0 0 10px;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 15px;
+}
+
+/* ----------------FEATURED WATER BODIES-------------- */
+.water-section {
+  padding: 80px 8%;
+  background: white;
+}
+
+.water-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 40px;
+}
+
+.water-heading h2 {
+  font-size: 40px;
+  margin: 10px 0 0;
+}
+
+.view-all-btn {
+  padding: 11px 20px;
+  border: 1px solid #222;
+  background: white;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.water-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.water-card {
+  overflow: hidden;
+  border: 1px solid #e5eeee;
+  border-radius: 16px;
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+.water-card:hover {
+  transform: translateY(-5px);
+}
+
+.water-image {
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px;
+  background: #f5fbfa;
+}
+
+.water-info {
+  padding: 22px;
+}
+
+.water-type {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0 0 8px;
+}
+
+.water-info h3 {
+  font-size: 24px;
+  margin: 0 0 8px;
+}
+
+.water-info>p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.quality {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid #eeeeee;
+}
+
+.quality span {
+  font-size: 13px;
+}
+
+.quality strong {
+  font-size: 14px;
+}
+
+/* -----------------------INDEA MAP SEC--------------------------- */
+.map-section {
+  padding: 90px 8%;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+  background: #f5fbfa;
+}
+
+.map-content {
+  max-width: 500px;
+}
+
+.map-content h2 {
+  font-size: 42px;
+  line-height: 1.15;
+  margin: 15px 0 20px;
+}
+
+.map-content>p:not(.section-label) {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.map-btn {
+  padding: 14px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.map-preview {
+  min-height: 420px;
+  border-radius: 20px;
+  background: white;
+  border: 1px solid #e5eeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.map-placeholder {
+  text-align: center;
+}
+
+.map-placeholder span {
+  font-size: 100px;
+}
+
+.map-placeholder h3 {
+  font-size: 25px;
+  margin: 15px 0 8px;
+}
+
+.map-placeholder p {
+  margin: 0;
+  color: #666;
 }
