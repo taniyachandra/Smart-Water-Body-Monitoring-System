@@ -1,0 +1,36 @@
+.waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: var(--wave-h, 100px);
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.waves-top {
+  top: -1px;
+  bottom: auto;
+  transform: rotate(180deg);
+}
+
+.waves svg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  max-width: none;
+  height: 100%;
+  fill: var(--wave-color, var(--mist));
+  animation: wave-drift linear infinite;
+}
+
+@keyframes wave-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

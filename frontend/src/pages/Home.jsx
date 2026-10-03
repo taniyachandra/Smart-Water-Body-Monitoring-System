@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import MapView from "../components/MapView";
 // ----------------------------------HERO SECTION-----------------------------------
 function Home() {
+    const navigate = useNavigate();
+
     return (
         <main>
             <section className="hero">
@@ -20,20 +23,43 @@ function Home() {
                     </p>
 
                     <div className="hero-buttons">
-                        <button className="primary-btn">
+                        <button
+                            className="primary-btn btn-primary"
+                            onClick={() => navigate("/water-bodies")}
+                        >
                             Explore Water Bodies
                         </button>
 
-                        <button className="secondary-btn">
+                        <button
+                            className="secondary-btn btn-secondary"
+                            onClick={() => navigate("/report")}
+                        >
                             Report Pollution
                         </button>
                     </div>
                 </div>
 
                 <div className="hero-card">
-                    <div className="water-icon">💧</div>
+                    <div className="hero-card-top">
+                        <span className="water-icon">💧</span>
+                        <span className="quality-pill quality-good">Live monitoring</span>
+                    </div>
                     <h2>India's Water</h2>
-                    <p>Monitor • Analyze • Protect</p>
+                    <p>Monitor · Analyze · Protect</p>
+                    <div className="hero-card-stat">
+                        <strong>120+</strong>
+                        <span>water bodies tracked</span>
+                    </div>
+                </div>
+                {[[8,18,9],[22,10,14],[38,24,11],[55,14,16],[70,20,10],[86,12,13]].map(([l,sz,d],i)=>(
+                    <span key={i} className="bubble" style={{left:`${l}%`,width:sz,height:sz,animationDuration:`${d}s`,animationDelay:`${i*1.3}s`}} />
+                ))}
+                <div className="hero-waves" aria-hidden="true">
+                    {[["wave-1","#7fd0e6"],["wave-2","#bfe8f6"],["wave-3","#eef8fc"]].map(([c,f])=>(
+                        <svg key={c} className={c} viewBox="0 0 1440 120" preserveAspectRatio="none">
+                            <path fill={f} d="M0 60 C 180 110, 360 10, 540 60 S 900 110, 1080 60 S 1260 20, 1440 60 V120 H0 Z" />
+                        </svg>
+                    ))}
                 </div>
             </section>
 
@@ -88,11 +114,19 @@ function Home() {
                         <h2>Featured Water Bodies</h2>
                     </div>
 
-                    <button className="view-all-btn">View All</button>
+                    <button
+                        className="view-all-btn"
+                        onClick={() => navigate("/water-bodies")}
+                    >
+                        View All
+                    </button>
                 </div>
 
                 <div className="water-grid">
-                    <div className="water-card">
+                    <div
+                        className="water-card"
+                        onClick={() => navigate("/water-bodies/1")}
+                    >
                         <div className="water-image">🌊</div>
 
                         <div className="water-info">
@@ -102,12 +136,15 @@ function Home() {
 
                             <div className="quality">
                                 <span>Water Quality</span>
-                                <strong>Good</strong>
+                                <span className="quality-pill quality-good">Good</span>
                             </div>
                         </div>
                     </div>
 
-                    <div className="water-card">
+                    <div
+                        className="water-card"
+                        onClick={() => navigate("/water-bodies/2")}
+                    >
                         <div className="water-image">🏞️</div>
 
                         <div className="water-info">
@@ -117,12 +154,15 @@ function Home() {
 
                             <div className="quality">
                                 <span>Water Quality</span>
-                                <strong>Moderate</strong>
+                                <span className="quality-pill quality-moderate">Moderate</span>
                             </div>
                         </div>
                     </div>
 
-                    <div className="water-card">
+                    <div
+                        className="water-card"
+                        onClick={() => navigate("/water-bodies/3")}
+                    >
                         <div className="water-image">💧</div>
 
                         <div className="water-info">
@@ -132,7 +172,7 @@ function Home() {
 
                             <div className="quality">
                                 <span>Water Quality</span>
-                                <strong>Good</strong>
+                                <span className="quality-pill quality-good">Good</span>
                             </div>
                         </div>
                     </div>
@@ -150,7 +190,10 @@ function Home() {
                         across different regions of India.
                     </p>
 
-                    <button className="map-btn">
+                    <button
+                        className="map-btn btn-primary"
+                        onClick={() => navigate("/map")}
+                    >
                         Explore Interactive Map
                     </button>
                 </div>

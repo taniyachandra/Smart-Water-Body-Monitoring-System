@@ -1,3 +1,47 @@
+/* ---------------------------------------------------------
+   SWMS Design System
+   Palette drawn from river silt, moss and deep lake water —
+   a civic/environmental tone rather than a generic SaaS kit.
+--------------------------------------------------------- */
+:root {
+  --color-bg: #f5f8f6;
+  --color-surface: #ffffff;
+  --color-surface-tint: #eef5f2;
+
+  --color-ink: #122420;
+  --color-ink-soft: #4c615c;
+  --color-ink-faint: #7c8f8a;
+
+  --color-primary: #0f6d57;
+  --color-primary-dark: #0a4d3e;
+  --color-primary-tint: #e3f0ea;
+
+  --color-accent: #1f7f9c;
+  --color-accent-dark: #145a70;
+
+  --color-line: #dbe7e1;
+  --color-line-strong: #c3d5cd;
+
+  --color-good: #1e8e5a;
+  --color-good-bg: #e5f5ec;
+  --color-moderate: #b8791b;
+  --color-moderate-bg: #fbf0dd;
+  --color-poor: #b3452e;
+  --color-poor-bg: #fbe9e4;
+
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --shadow-soft: 0 10px 28px rgba(16, 36, 32, 0.07);
+  --shadow-lift: 0 16px 36px rgba(16, 36, 32, 0.12);
+
+  --container: 1180px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,5 +52,112 @@ html {
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p {
+  color: var(--color-ink-soft);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Shared building blocks reused across pages */
+.section-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+.btn-primary {
+  border: none;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: 600;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1.5px solid var(--color-ink);
+  color: var(--color-ink);
+  font-weight: 600;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--color-ink);
+  color: #ffffff;
+}
+
+.quality-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.quality-pill::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.quality-good {
+  background: var(--color-good-bg);
+  color: var(--color-good);
+}
+
+.quality-moderate {
+  background: var(--color-moderate-bg);
+  color: var(--color-moderate);
+}
+
+.quality-poor {
+  background: var(--color-poor-bg);
+  color: var(--color-poor);
 }
