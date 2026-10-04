@@ -27,7 +27,7 @@ router.post("/signup", async (req, res) => {
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email: (email || "").toLowerCase() });
-  if (!user || !(await bcrypt.compare(password, user.password))) {
+  if (!user || !(await bcrypt.compare(password || "", user.password))) {
     return res.status(401).json({ message: "Incorrect email or password." });
   }
   res.json({

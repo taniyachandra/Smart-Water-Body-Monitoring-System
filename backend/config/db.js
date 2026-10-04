@@ -1,7 +1,7 @@
 import dns from "node:dns";
 import mongoose from "mongoose";
 
-// Windows/ISP DNS issue fix: Google aur Cloudflare DNS use karo
+// Windows/ISP DNS issue fix
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 const connectDB = async () => {

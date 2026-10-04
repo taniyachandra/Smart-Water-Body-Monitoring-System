@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import WaterBody from "./models/WaterBody.js";
 import waterBodies from "../frontend/src/data/waterBodies.js";
 
-// Windows/ISP DNS issue fix (same as db.js)
+// Windows/ISP DNS issue fix
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 dotenv.config();
