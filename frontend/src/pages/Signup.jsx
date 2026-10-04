@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "./Auth.css";
+import toast from "react-hot-toast";
 
 function Signup() {
   const { signup } = useAuth();
@@ -42,6 +43,7 @@ function Signup() {
       setError(result.error);
       return;
     }
+       toast.success("Account created! Welcome to SWMS 💧");
 
     navigate("/", { replace: true });
   };

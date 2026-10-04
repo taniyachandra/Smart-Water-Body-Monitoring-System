@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import "./Auth.css";
+   import toast from "react-hot-toast";
 
 function Login() {
   const { login } = useAuth();
@@ -31,6 +32,7 @@ function Login() {
       setError(result.error);
       return;
     }
+    toast.success("Welcome back!");
 
     navigate(redirectTo, { replace: true });
   };

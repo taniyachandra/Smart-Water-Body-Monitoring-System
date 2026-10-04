@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import useWaterBodies from "../services/useWaterBodies";
 import { api } from "../services/api";
@@ -41,8 +42,10 @@ function ReportPollution() {
         description: "",
         location: "",
       });
+      toast.success("Report submitted successfully!");
     } catch (err) {
       setError(err.message);
+      toast.error(err.message);
     }
   };
 

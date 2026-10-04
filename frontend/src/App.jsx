@@ -11,10 +11,30 @@ import Signup from "./pages/Signup";
 import MapPage from "./pages/MapPage";
 import Analytics from "./pages/Analytics";
 import MyReports from "./pages/MyReports";
+   import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <BrowserRouter>
+
+       <Toaster
+     position="top-right"
+     containerStyle={{ top: 84 }}
+     toastOptions={{
+       duration: 3000,
+       style: {
+         background: "#ffffff",
+         color: "#062a40",
+         border: "1px solid #cfe6f0",
+         borderRadius: "14px",
+         padding: "12px 16px",
+         fontWeight: 600,
+         boxShadow: "0 12px 30px rgba(7, 93, 134, 0.18)",
+       },
+       success: { iconTheme: { primary: "#12a06b", secondary: "#ffffff" } },
+       error: { iconTheme: { primary: "#d2503a", secondary: "#ffffff" } },
+     }}
+   />
       <Navbar />
 
       <Routes>

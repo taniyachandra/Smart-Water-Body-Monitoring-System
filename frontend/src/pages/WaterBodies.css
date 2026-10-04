@@ -155,3 +155,39 @@
     width: 100%;
   }
 }
+/* ---------- Results bar & clear button ---------- */
+.wf-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.wf-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+}
+
+.wf-clear {
+  padding: 7px 16px;
+  border: 1.5px solid var(--color-poor);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-poor);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.wf-clear:hover {
+  background: var(--color-poor);
+  color: #ffffff;
+}
+
+.empty-state .wf-clear {
+  margin-top: 14px;
+}
