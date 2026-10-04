@@ -1,5 +1,5 @@
 import { useState } from "react";
-import waterBodies from "../data/waterBodies";
+import useWaterBodies from "../services/useWaterBodies";
 import MapView from "../components/MapView";
 import "./MapPage.css";
 
@@ -9,6 +9,7 @@ function qualityClass(quality) {
 
 function MapPage() {
   const [selected, setSelected] = useState(null);
+  const { waterBodies } = useWaterBodies();
 
   return (
     <main className="map-page">

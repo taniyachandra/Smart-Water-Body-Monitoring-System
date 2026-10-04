@@ -1,4 +1,4 @@
-import waterBodies from "../data/waterBodies";
+import useWaterBodies from "../services/useWaterBodies";
 import "./Analytics.css";
 
 const QUALITY_ORDER = ["Good", "Moderate", "Poor"];
@@ -9,6 +9,11 @@ function average(values) {
 }
 
 function Analytics() {
+  const { waterBodies, loading, error } = useWaterBodies();
+
+  if (loading) return <main className="analytics-page"><p>Loading analytics...</p></main>;
+  if (error || waterBodies.length === 0) return <main className="analytics-page"><p>{error || "No data available."}</p></main>;
+
   const total = waterBodies.length;
 
   const qualityCounts = QUALITY_ORDER.map((quality) => ({

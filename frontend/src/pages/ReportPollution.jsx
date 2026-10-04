@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import waterBodies from "../data/waterBodies";
+import useWaterBodies from "../services/useWaterBodies";
+import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 
 import "./ReportPollution.css";
 
 function ReportPollution() {
-  const { user } = useAuth();
+  const { user, token } = useAuth();
+  const { waterBodies } = useWaterBodies();
+  const [error, setError] = useState("");
 
   const [formData, setFormData] = useState({
     waterBody: "",
@@ -25,21 +28,22 @@ function ReportPollution() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
-    setSubmittedReport(formData);
-
-    console.log("Pollution Report:", formData);
-
-    alert("Pollution report submitted successfully!");
-
-    setFormData({
-      waterBody: "",
-      pollutionType: "",
-      description: "",
-      location: "",
-    });
+    try {
+      await api("/reports", { method: "POST", body: formData, token });
+      setSubmittedReport(formData);
+      setFormData({
+        waterBody: "",
+        pollutionType: "",
+        description: "",
+        location: "",
+      });
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
@@ -158,6 +162,10 @@ function ReportPollution() {
           type="file"
           accept="image/*"
         />
+
+        {error && (
+          <p style={{ color: "var(--color-poor)", marginTop: 14 }}>{error}</p>
+        )}
 
         <button
           type="submit"

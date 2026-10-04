@@ -20,7 +20,7 @@ function Signup() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     setError("");
 
@@ -35,7 +35,7 @@ function Signup() {
     }
 
     setSubmitting(true);
-    const result = signup(formData);
+    const result = await signup(formData);
     setSubmitting(false);
 
     if (!result.ok) {

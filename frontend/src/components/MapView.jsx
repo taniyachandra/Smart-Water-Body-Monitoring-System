@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import waterBodies from "../data/waterBodies";
+import useWaterBodies from "../services/useWaterBodies";
 
 import {
   Map,
@@ -19,6 +19,7 @@ setWorkerUrl(workerUrl);
 
 function MapView({ selectedWaterBody = null }) {
   const mapContainer = useRef(null);
+  const { waterBodies } = useWaterBodies();
   const COLORS = { Good: "#12a06b", Moderate: "#c98a14", Poor: "#d2503a" };
 
   useEffect(() => {
@@ -69,7 +70,7 @@ function MapView({ selectedWaterBody = null }) {
           )
           .addTo(map);
       } else {
-        // Home page par saare water bodies ke markers
+        // Saare water bodies ke markers
         waterBodies.forEach((waterBody) => {
           new Marker({ color: COLORS[waterBody.quality] })
             .setLngLat([
@@ -96,7 +97,7 @@ function MapView({ selectedWaterBody = null }) {
     return () => {
       map.remove();
     };
-  }, [selectedWaterBody]);
+  }, [selectedWaterBody, waterBodies]);
 
   return (
     <div

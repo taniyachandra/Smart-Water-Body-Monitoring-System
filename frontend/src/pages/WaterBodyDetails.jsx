@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import waterBodies from "../data/waterBodies";
+// import waterBodies from "../data/waterBodies";
+import useWaterBodies from "../services/useWaterBodies";
 import "./WaterBodyDetails.css";
 import MapView from "../components/MapView";
 
@@ -9,6 +10,10 @@ function qualityClass(quality) {
 
 function WaterBodyDetails() {
   const { id } = useParams();
+     const { waterBodies, loading, error } = useWaterBodies();
+
+   if (loading) return <main className="details-page"><p>Loading...</p></main>;
+   if (error) return <main className="details-page"><p>{error}</p></main>;
 
   const waterBody = waterBodies.find(
     (item) => item.id === Number(id)

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import waterBodies from "../data/waterBodies";
+// import waterBodies from "../data/waterBodies";
+import useWaterBodies from "../services/useWaterBodies";
 
 import "./WaterBodies.css";
 
@@ -10,9 +11,12 @@ function qualityClass(quality) {
 
 function WaterBodies() {
   const navigate = useNavigate();
+     const { waterBodies, loading, error } = useWaterBodies();
   const [search, setSearch] = useState("");
   const [type, setType] = useState("All");
 
+     if (loading) return <main className="water-page"><p>Loading water bodies...</p></main>;
+   if (error) return <main className="water-page"><p>{error}</p></main>;
   const filteredWaterBodies = waterBodies.filter((waterBody) => {
     const matchesSearch =
       waterBody.name.toLowerCase().includes(search.toLowerCase()) ||

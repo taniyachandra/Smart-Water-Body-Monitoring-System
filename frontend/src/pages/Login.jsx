@@ -18,12 +18,12 @@ function Login() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+     const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSubmitting(true);
 
-    const result = login(formData);
+      const result = await login(formData);
 
     setSubmitting(false);
 
