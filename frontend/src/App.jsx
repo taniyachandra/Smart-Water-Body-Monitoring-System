@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import MapPage from "./pages/MapPage";
 import Analytics from "./pages/Analytics";
+import MyReports from "./pages/MyReports";
 
 function App() {
   return (
@@ -19,24 +20,17 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route
-          path="/water-bodies"
-          element={<WaterBodies />}
-        />
+        <Route path="/water-bodies" element={<WaterBodies />} />
 
-        <Route
-          path="/water-bodies/:id"
-          element={<WaterBodyDetails />}
-        />
-        <Route
-        path="/report"
-       element={<ReportPollution />}
-       />
+        <Route path="/water-bodies/:id" element={<WaterBodyDetails />} />
+
+        <Route path="/report" element={<ReportPollution />} />
 
         <Route path="/map" element={<MapPage />} />
         <Route path="/analytics" element={<Analytics />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/my-reports" element={<MyReports />} />
       </Routes>
 
       <Footer />

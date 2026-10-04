@@ -1,0 +1,132 @@
+.mr-page {
+  padding: 50px 8% 80px;
+  min-height: calc(100vh - 72px);
+  background: var(--color-bg);
+}
+
+.mr-header {
+  max-width: 640px;
+  margin-bottom: 34px;
+}
+
+.mr-header h1 {
+  margin: 10px 0 8px;
+}
+
+.mr-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.mr-card {
+  position: relative;
+  overflow: hidden;
+  padding: 22px 22px 20px 26px;
+  background: #ffffff;
+  border: 1px solid var(--color-line);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(7, 93, 134, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mr-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--gradient-water);
+}
+
+.mr-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.mr-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.mr-card h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.mr-type {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mr-status {
+  flex-shrink: 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--color-moderate-bg);
+  color: var(--color-moderate);
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.mr-status.mr-resolved {
+  background: var(--color-good-bg, #dff5ea);
+  color: var(--color-good);
+}
+
+.mr-desc {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-ink-soft);
+}
+
+.mr-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-line);
+  font-size: 13px;
+  color: var(--color-ink-faint);
+}
+
+.mr-empty {
+  max-width: 460px;
+  padding: 36px 28px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px dashed var(--color-line-strong);
+  border-radius: 18px;
+}
+
+.mr-empty h2 {
+  margin: 0 0 8px;
+}
+
+.mr-empty p {
+  margin: 0 0 18px;
+  color: var(--color-ink-soft);
+}
+
+.mr-empty .btn-primary {
+  display: inline-block;
+  padding: 11px 24px;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.mr-error {
+  color: var(--color-poor);
+}

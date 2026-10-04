@@ -425,3 +425,26 @@
     box-shadow: none;
   }
 }
+
+.nav-links a.nb-dd-link {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: var(--color-surface-tint);
+  color: var(--color-ink);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.nav-links a.nb-dd-link::after {
+  display: none;
+}
+
+.nav-links a.nb-dd-link:hover {
+  background: var(--color-primary-tint);
+  color: var(--color-primary-dark);
+}

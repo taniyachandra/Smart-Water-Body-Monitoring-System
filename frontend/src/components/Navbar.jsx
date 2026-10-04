@@ -74,6 +74,7 @@ function Navbar() {
 
         {user ? (
           <div className="nb-user" ref={menuRef}>
+
             <button
               className="nb-user-btn"
               onClick={() => setMenuOpen((v) => !v)}
@@ -93,6 +94,7 @@ function Navbar() {
                     <p className="nb-dd-email">{user.email}</p>
                   </div>
                 </div>
+                <Link to="/my-reports"className="nb-dd-link"onClick={() => { setMenuOpen(false);setOpen(false);}}> 📄 My Reports</Link>
                 <button className="nb-logout" onClick={handleLogout}>
                   ⎋ Log out
                 </button>
@@ -107,6 +109,7 @@ function Navbar() {
             <NavLink to="/signup" className="nb-signup" onClick={closeAll}>
               Sign up
             </NavLink>
+            
           </div>
         )}
       </div>
