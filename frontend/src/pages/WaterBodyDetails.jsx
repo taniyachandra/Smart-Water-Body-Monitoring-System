@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import useWaterBodies from "../services/useWaterBodies";
 import "./WaterBodyDetails.css";
 import MapView from "../components/MapView";
+import { PageLoader } from "../components/Skeleton";
 
 function qualityClass(quality) {
   return `quality-pill quality-${quality.toLowerCase()}`;
@@ -12,7 +13,7 @@ function WaterBodyDetails() {
   const { id } = useParams();
      const { waterBodies, loading, error } = useWaterBodies();
 
-   if (loading) return <main className="details-page"><p>Loading...</p></main>;
+        if (loading) return <main className="details-page"><PageLoader /></main>;
    if (error) return <main className="details-page"><p>{error}</p></main>;
 
   const waterBody = waterBodies.find(

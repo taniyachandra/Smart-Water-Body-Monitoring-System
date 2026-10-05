@@ -1,0 +1,53 @@
+.sk {
+  border-radius: 8px;
+  background: linear-gradient(
+    90deg,
+    #dcedf5 25%,
+    #eef8fc 50%,
+    #dcedf5 75%
+  );
+  background-size: 200% 100%;
+  animation: skShimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes skShimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+.sk-card {
+  padding: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+
+.sk-pill { width: 60px; height: 18px; margin-bottom: 16px; border-radius: 999px; }
+.sk-title { width: 70%; height: 24px; margin-bottom: 14px; }
+.sk-line { width: 90%; height: 14px; margin-bottom: 10px; }
+.sk-short { width: 50%; margin-bottom: 22px; }
+.sk-btn { width: 100%; height: 42px; border-radius: 999px; }
+
+.sk-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 90px 20px;
+  color: var(--color-ink-soft);
+  font-weight: 600;
+}
+
+.sk-drop {
+  font-size: 40px;
+  animation: skBounce 1s ease-in-out infinite;
+}
+
+@keyframes skBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk, .sk-drop { animation: none; }
+}

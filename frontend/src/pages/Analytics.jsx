@@ -1,5 +1,6 @@
 import useWaterBodies from "../services/useWaterBodies";
 import "./Analytics.css";
+import { PageLoader } from "../components/Skeleton";
 
 const QUALITY_ORDER = ["Good", "Moderate", "Poor"];
 
@@ -11,7 +12,7 @@ function average(values) {
 function Analytics() {
   const { waterBodies, loading, error } = useWaterBodies();
 
-  if (loading) return <main className="analytics-page"><p>Loading analytics...</p></main>;
+   if (loading) return <main className="analytics-page"><PageLoader text="Loading analytics..." /></main>;
   if (error || waterBodies.length === 0) return <main className="analytics-page"><p>{error || "No data available."}</p></main>;
 
   const total = waterBodies.length;

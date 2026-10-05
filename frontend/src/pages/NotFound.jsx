@@ -1,17 +1,30 @@
 import { Link } from "react-router-dom";
-import PageHero from "../components/PageHero";
+import "./NotFound.css";
 
 function NotFound() {
   return (
-    <main>
-      <PageHero
-        title="Page not found"
-        text="That page doesn't exist, or it has moved. Let's get you back to the water."
-      >
-        <Link to="/" className="btn btn-aqua" style={{ marginTop: 26 }}>
-          Go to home
-        </Link>
-      </PageHero>
+    <main className="nf-page">
+      <div className="nf-card">
+        <div className="nf-code">
+          4<span>💧</span>4
+        </div>
+
+        <h1>Page not found</h1>
+
+        <p>
+          Looks like this page dried up. The link may be broken, or the page
+          has moved.
+        </p>
+
+        <div className="nf-actions">
+          <Link to="/" className="nf-btn nf-primary">
+            Go to Home
+          </Link>
+          <Link to="/water-bodies" className="nf-btn nf-secondary">
+            Browse Water Bodies
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }

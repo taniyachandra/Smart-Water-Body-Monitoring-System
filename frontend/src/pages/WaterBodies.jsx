@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useWaterBodies from "../services/useWaterBodies";
+   import { CardSkeletons } from "../components/Skeleton";
 
 import "./WaterBodies.css";
 
@@ -18,7 +19,17 @@ function WaterBodies() {
   const [quality, setQuality] = useState("All");
   const [sortBy, setSortBy] = useState("name");
 
-  if (loading) return <main className="water-page"><p>Loading water bodies...</p></main>;
+    if (loading)
+     return (
+       <main className="water-page">
+         <div className="water-page-header">
+           <p>EXPLORE INDIA</p>
+           <h1>Water Bodies</h1>
+           <p>Explore rivers, lakes and other water bodies across India.</p>
+         </div>
+         <CardSkeletons count={6} />
+       </main>
+     );
   if (error) return <main className="water-page"><p>{error}</p></main>;
 
   const filteredWaterBodies = waterBodies
