@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { api } from "../services/api";
 import { useAuth } from "../context/AuthContext";
+   import { api, fileUrl } from "../services/api";
 
 import "./MyReports.css";
 
@@ -77,6 +77,13 @@ function MyReports() {
         <div className="mr-list">
           {reports.map((report) => (
             <article className="mr-card" key={report._id}>
+                 {report.photo && (
+     <img
+       className="mr-photo"
+       src={fileUrl(report.photo)}
+       alt="Pollution evidence"
+     />
+   )}
               <div className="mr-card-top">
                 <div>
                   <h3>{report.waterBody}</h3>

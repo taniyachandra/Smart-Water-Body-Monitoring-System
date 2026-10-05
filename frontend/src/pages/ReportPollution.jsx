@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -8,10 +8,16 @@ import { useAuth } from "../context/AuthContext";
 
 import "./ReportPollution.css";
 
+const MAX_PHOTO_MB = 5;
+
 function ReportPollution() {
   const { user, token } = useAuth();
   const { waterBodies } = useWaterBodies();
   const [error, setError] = useState("");
+
+  const [photo, setPhoto] = useState(null);
+  const [preview, setPreview] = useState("");
+  const fileInputRef = useRef(null);
 
   const [formData, setFormData] = useState({
     waterBody: "",
@@ -29,19 +35,50 @@ function ReportPollution() {
     });
   };
 
+  const clearPhoto = () => {
+    setPhoto(null);
+    setPreview("");
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const handlePhoto = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      toast.error("Please choose an image file.");
+      clearPhoto();
+      return;
+    }
+
+    if (file.size > MAX_PHOTO_MB * 1024 * 1024) {
+      toast.error(`Photo must be under ${MAX_PHOTO_MB} MB.`);
+      clearPhoto();
+      return;
+    }
+
+    setPhoto(file);
+    setPreview(URL.createObjectURL(file));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
+    const body = new FormData();
+    Object.entries(formData).forEach(([key, value]) => body.append(key, value));
+    if (photo) body.append("photo", photo);
+
     try {
-      await api("/reports", { method: "POST", body: formData, token });
-      setSubmittedReport(formData);
+      await api("/reports", { method: "POST", body, token });
+      setSubmittedReport({ ...formData, photoPreview: preview });
       setFormData({
         waterBody: "",
         pollutionType: "",
         description: "",
         location: "",
       });
+      clearPhoto();
       toast.success("Report submitted successfully!");
     } catch (err) {
       setError(err.message);
@@ -159,12 +196,25 @@ function ReportPollution() {
           required
         />
 
-        <label>Upload Photo</label>
+        <label>Upload Photo (optional)</label>
 
         <input
           type="file"
           accept="image/*"
+          ref={fileInputRef}
+          onChange={handlePhoto}
         />
+
+        <p className="photo-hint">JPG or PNG, up to {MAX_PHOTO_MB} MB</p>
+
+        {preview && (
+          <div className="photo-preview">
+            <img src={preview} alt="Selected pollution" />
+            <button type="button" className="photo-remove" onClick={clearPhoto}>
+              ✕ Remove
+            </button>
+          </div>
+        )}
 
         {error && (
           <p style={{ color: "var(--color-poor)", marginTop: 14 }}>{error}</p>
@@ -187,6 +237,14 @@ function ReportPollution() {
             <h2>Report submitted</h2>
             <span className="status-pill">Pending review</span>
           </div>
+
+          {submittedReport.photoPreview && (
+            <img
+              className="submitted-photo"
+              src={submittedReport.photoPreview}
+              alt="Submitted pollution"
+            />
+          )}
 
           <dl>
             <div>

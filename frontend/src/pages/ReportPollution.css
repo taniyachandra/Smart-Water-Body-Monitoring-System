@@ -195,3 +195,50 @@
     padding: 20px;
   }
 }
+/* ---------- Photo upload ---------- */
+.photo-hint {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: var(--color-ink-faint);
+}
+
+.photo-preview {
+  position: relative;
+  margin-top: 12px;
+}
+
+.photo-preview img {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--color-line);
+}
+
+.photo-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(4, 36, 58, 0.8);
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.photo-remove:hover {
+  background: var(--color-poor);
+}
+
+.submitted-photo {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}

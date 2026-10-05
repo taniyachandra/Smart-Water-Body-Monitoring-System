@@ -8,6 +8,7 @@ const reportSchema = new mongoose.Schema(
     location: { type: String, required: true },
     description: { type: String, required: true },
     status: { type: String, default: "Pending review" },
+        photo: { type: String, default: "" },
   },
   { timestamps: true }
 );
