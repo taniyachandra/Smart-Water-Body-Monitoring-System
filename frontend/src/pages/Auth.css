@@ -123,3 +123,13 @@
     padding: 28px 22px;
   }
 }
+.auth-forgot {
+  align-self: flex-end;
+  margin-top: -4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.auth-forgot:hover { text-decoration: underline; }

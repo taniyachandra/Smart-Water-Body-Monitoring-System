@@ -10,6 +10,20 @@ function Navbar() {
   const navigate = useNavigate();
   const menuRef = useRef(null);
 
+    const [theme, setTheme] = useState(
+    () => document.documentElement.dataset.theme || "light"
+  );
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    document.documentElement.dataset.theme = next;
+    try {
+      localStorage.setItem("swms_theme", next);
+    } catch {
+      // ignore
+    }
+  };
   const navItem = ({ isActive }) => (isActive ? "active" : "");
 
   const initials = user?.name
@@ -72,6 +86,14 @@ function Navbar() {
         <NavLink to="/analytics" className={navItem} onClick={closeAll}>Analytics</NavLink>
         <NavLink to="/report" className={navItem} onClick={closeAll}>Report Pollution</NavLink>
 
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode"
+        >
+          {theme === "dark" ? "☀️" : "🌙"}
+        </button>
         {user ? (
           <div className="nb-user" ref={menuRef}>
 

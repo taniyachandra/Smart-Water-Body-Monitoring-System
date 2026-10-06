@@ -1,0 +1,113 @@
+/* =========================================================
+   SWMS — Dark mode (html[data-theme="dark"])
+========================================================= */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #061a29;
+  --color-surface: #0b2c42;
+  --color-surface-tint: #0a2438;
+  --color-ink: #e6f4fa;
+  --color-ink-soft: #a9c8d8;
+  --color-ink-faint: #7ba0b4;
+  --color-primary: #3fb6e8;
+  --color-primary-dark: #8fdcf0;
+  --color-primary-tint: #0f3b55;
+  --color-accent: #22d0e0;
+  --color-line: #164663;
+  --color-line-strong: #21607f;
+  --color-good: #34d399;
+  --color-moderate: #f0b43c;
+  --color-poor: #f27a63;
+  --color-good-bg: #0f3326;
+  --color-moderate-bg: #3a2e10;
+  --color-poor-bg: #3d1a14;
+  --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.35);
+  --shadow-lift: 0 20px 44px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+/* Navbar */
+[data-theme="dark"] .navbar {
+  background: rgba(6, 26, 41, 0.8);
+  border-bottom-color: var(--color-line);
+}
+
+/* Cards and panels that used plain white */
+[data-theme="dark"] .nb-user-btn,
+[data-theme="dark"] .nb-dropdown,
+[data-theme="dark"] .mr-card,
+[data-theme="dark"] .mr-empty,
+[data-theme="dark"] .ad-stat,
+[data-theme="dark"] .ad-tab,
+[data-theme="dark"] .ad-card,
+[data-theme="dark"] .ad-gate,
+[data-theme="dark"] .ad-sections,
+[data-theme="dark"] .aw-form,
+[data-theme="dark"] .aw-row,
+[data-theme="dark"] .aw-cancel,
+[data-theme="dark"] .fp-card {
+  background: var(--color-surface);
+}
+
+/* Form fields */
+[data-theme="dark"] input,
+[data-theme="dark"] select,
+[data-theme="dark"] textarea {
+  background: var(--color-surface-tint);
+  color: var(--color-ink);
+  border-color: var(--color-line-strong);
+}
+
+[data-theme="dark"] ::placeholder { color: var(--color-ink-faint); }
+
+/* Gradient headings were dark navy */
+[data-theme="dark"] .water-page-header h1,
+[data-theme="dark"] .analytics-header h1,
+[data-theme="dark"] .map-page-header h1,
+[data-theme="dark"] .report-header h1,
+[data-theme="dark"] .details-page h1 {
+  background: linear-gradient(135deg, #e6f4fa, #7fe3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* White buttons on dark hero */
+[data-theme="dark"] .hero .btn-primary,
+[data-theme="dark"] .nf-primary,
+[data-theme="dark"] .map-section .map-btn {
+  color: #075d86;
+}
+
+[data-theme="dark"] .ad-status.ad-resolved { background: var(--color-good-bg); }
+
+[data-theme="dark"] .water-image { background: linear-gradient(160deg, #0f3b55, #0b2c42); }
+
+/* Skeleton shimmer */
+[data-theme="dark"] .sk {
+  background: linear-gradient(90deg, #0f3b55 25%, #164663 50%, #0f3b55 75%);
+  background-size: 200% 100%;
+}
+
+/* ---------- Theme toggle button ---------- */
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1.5px solid var(--color-line-strong);
+  border-radius: 50%;
+  background: transparent;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg);
+  border-color: var(--color-primary);
+}

@@ -1,0 +1,34 @@
+.qa-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 5%;
+  background: linear-gradient(90deg, #b8402c, #d2503a);
+  color: #ffffff;
+  font-size: 13.5px;
+}
+
+.qa-link {
+  padding: 4px 14px;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  border-radius: 999px;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.qa-link:hover { background: rgba(255, 255, 255, 0.2); }
+
+.qa-close {
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .qa-banner { flex-wrap: wrap; justify-content: flex-start; }
+}
