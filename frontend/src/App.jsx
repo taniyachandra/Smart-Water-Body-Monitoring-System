@@ -13,6 +13,7 @@ import Analytics from "./pages/Analytics";
 import MyReports from "./pages/MyReports";
    import { Toaster } from "react-hot-toast";
       import NotFound from "./pages/NotFound";
+         import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/my-reports" element={<MyReports />} />
+           <Route path="/admin" element={<Admin />} />
            <Route path="*" element={<NotFound />} />
       </Routes>
 

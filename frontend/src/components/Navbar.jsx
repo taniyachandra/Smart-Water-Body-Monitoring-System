@@ -97,6 +97,18 @@ function Navbar() {
                     <p className="nb-dd-email">{user.email}</p>
                   </div>
                 </div>
+                {user.role === "admin" && (
+  <Link
+    to="/admin"
+    className="nb-dd-link"
+    onClick={() => {
+      setMenuOpen(false);
+      setOpen(false);
+    }}
+  >
+    🛠 Admin Panel
+  </Link>
+)}
                 <Link to="/my-reports"className="nb-dd-link"onClick={() => { setMenuOpen(false);setOpen(false);}}> 📄 My Reports</Link>
                 <button className="nb-logout" onClick={handleLogout}>
                   ⎋ Log out

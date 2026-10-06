@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.js";
 import waterBodyRoutes from "./routes/waterBodies.js";
 import reportRoutes from "./routes/reports.js";
    import path from "path";
+      import adminRoutes from "./routes/admin.js";
 
 dotenv.config();
 connectDB();
@@ -19,6 +20,7 @@ app.get("/", (req, res) => res.send("SWMS API running"));
 app.use("/api/auth", authRoutes);
 app.use("/api/water-bodies", waterBodyRoutes);
 app.use("/api/reports", reportRoutes);
+   app.use("/api/admin", adminRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server on port ${PORT}`));
