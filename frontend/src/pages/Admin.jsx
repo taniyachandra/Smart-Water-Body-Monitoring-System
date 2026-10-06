@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { api, fileUrl } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import { PageLoader } from "../components/Skeleton";
+import AdminWaterBodies from "./AdminWaterBodies";
 
 import "./Admin.css";
 
@@ -28,6 +29,7 @@ function Admin() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [filter, setFilter] = useState("All");
+  const [section, setSection] = useState("reports");
 
   const isAdmin = user?.role === "admin";
 
@@ -83,6 +85,37 @@ function Admin() {
       </main>
     );
   }
+    const sectionTabs = (
+    <div className="ad-sections">
+      <button
+        className={section === "reports" ? "active" : ""}
+        onClick={() => setSection("reports")}
+      >
+        📋 Reports
+      </button>
+      <button
+        className={section === "water" ? "active" : ""}
+        onClick={() => setSection("water")}
+      >
+        💧 Water Bodies
+      </button>
+    </div>
+  );
+
+  if (section === "water") {
+    return (
+      <main className="ad-page">
+        <div className="ad-header">
+          <p className="section-label">ADMIN PANEL</p>
+          <h1>Manage Water Bodies</h1>
+          <p>Add new water bodies, edit readings or remove old entries.</p>
+        </div>
+
+        {sectionTabs}
+        <AdminWaterBodies token={token} />
+      </main>
+    );
+  }
 
   const count = (status) => reports.filter((r) => r.status === status).length;
 
@@ -96,6 +129,7 @@ function Admin() {
         <h1>Manage Reports</h1>
         <p>Review pollution reports submitted by users and update their status.</p>
       </div>
+            {sectionTabs}
 
       <div className="ad-stats">
         <div className="ad-stat"><strong>{reports.length}</strong><span>Total reports</span></div>

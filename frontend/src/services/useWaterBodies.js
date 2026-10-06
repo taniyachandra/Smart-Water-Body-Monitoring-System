@@ -3,6 +3,10 @@ import { api } from "./api";
 
 let cache = null;
 
+// Admin ne data badla ho to cache saaf karne ke liye
+export function resetWaterBodiesCache() {
+  cache = null;
+}
 export default function useWaterBodies() {
   const [waterBodies, setWaterBodies] = useState(cache || []);
   const [loading, setLoading] = useState(!cache);
