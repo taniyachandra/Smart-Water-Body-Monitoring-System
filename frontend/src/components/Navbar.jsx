@@ -90,7 +90,10 @@ function Navbar() {
                 <div className="nb-dropdown-head">
                   <span className="nb-avatar big">{initials}</span>
                   <div>
-                    <p className="nb-dd-name">{user.name}</p>
+                    <p className="nb-dd-name">
+  {user.name}
+  {user.role === "admin" && <span className="nb-role">Admin</span>}
+</p>
                     <p className="nb-dd-email">{user.email}</p>
                   </div>
                 </div>

@@ -448,3 +448,15 @@
   background: var(--color-primary-tint);
   color: var(--color-primary-dark);
 }
+.nb-role {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--gradient-water);
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}

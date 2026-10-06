@@ -8,6 +8,12 @@ const router = Router();
 const makeToken = (id) =>
   jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
+const publicUser = (user) => ({
+  name: user.name,
+  email: user.email,
+  role: user.role,
+});
+
 router.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password || password.length < 6) {
@@ -20,7 +26,7 @@ router.post("/signup", async (req, res) => {
   const user = await User.create({ name, email, password: hashed });
   res.status(201).json({
     token: makeToken(user._id),
-    user: { name: user.name, email: user.email },
+    user: publicUser(user),
   });
 });
 
@@ -32,7 +38,7 @@ router.post("/login", async (req, res) => {
   }
   res.json({
     token: makeToken(user._id),
-    user: { name: user.name, email: user.email },
+    user: publicUser(user),
   });
 });
 
